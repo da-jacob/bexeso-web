@@ -144,7 +144,7 @@ export const Game = ({
                             })
                         );
                     }
-                }, 500);
+                }, 1000);
             }
         }
     }, [isMyMove, flowers]);
