@@ -59,6 +59,7 @@ export const Game = ({
                 setIsMyMove(data.gameState.player === playerId.current);
                 setScore(
                     data.gameState.flowers.filter(
+                        // eslint-disable-next-line
                         (flower: any) => flower.owner === playerId.current
                     ).length / 2
                 );
@@ -69,6 +70,7 @@ export const Game = ({
                 setIsMyMove(data.gameState.player === playerId.current);
                 setScore(
                     data.gameState.flowers.filter(
+                        // eslint-disable-next-line
                         (flower: any) => flower.owner === playerId.current
                     ).length / 2
                 );
@@ -79,11 +81,11 @@ export const Game = ({
                 setGameWon(data.winner === playerId.current);
             }
         };
-    }, []);
+    }, [room, socketUrl]);
 
     useEffect(() => {
         if (!isMyMove) return;
-        let rotatedCards = flowers.filter(
+        const rotatedCards = flowers.filter(
             (flower) =>
                 flower.rotated &&
                 (flower.owner === null || flower.owner === undefined)
